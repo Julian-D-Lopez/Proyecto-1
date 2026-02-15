@@ -88,7 +88,7 @@ fig.add_trace(go.Scatter3d(
     y=latitudes,
     z=altitudes,
     mode='lines',
-    mode = 'ruta',
+    name = 'ruta',
 ))
 
 #fotos 3d
