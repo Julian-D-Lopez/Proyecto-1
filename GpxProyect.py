@@ -7,6 +7,7 @@
 
 #La visualización debe tener un mapa 2D y un mapa 3D.
 
+from curses.ascii import alt
 import folium
 import os   
 import folium
@@ -77,4 +78,30 @@ for foto in fotos_con_gps:
     ).add_to(mapa)
 
 mapa.save("mapa_2d.html")   
-print
+print("mapa 2D generado.")
+
+#Mapa 3D con Plotly
+
+fig = go.Figure()
+fig.add_trace(go.Scatter3d(
+    x=longitudes,
+    y=latitudes,
+    z=altitudes,
+    mode='lines',
+    mode = 'ruta',
+))
+
+#fotos 3d
+
+for foto in fotos_con_gps:
+    nombre, lat, lon = foto
+    fig.add_trace(go.Scatter3d(
+        x=[lon],
+        y=[lat],
+        z=[alt],
+        mode='markers',
+        marker=dict(size=5, color='red'),
+        name=nombre
+    ))
+fig.write_html("mapa_3d.html")
+print("mapa 3D generado.")
