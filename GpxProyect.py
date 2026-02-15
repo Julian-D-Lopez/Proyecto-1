@@ -13,6 +13,8 @@ import folium
 from exif import Image
 from datetime import datetime
 import plotly.graph_objects as go
+import gpxpy
+
 
 #leer archivo GPX
 with open("ruta.gpx", "r", encoding="utf-8") as file:
@@ -97,7 +99,7 @@ for foto in fotos_con_gps:
     fig.add_trace(go.Scatter3d(
         x=[lon],
         y=[lat],
-        z=[alt],
+        z=[0],
         mode='markers',
         marker=dict(size=5, color='red'),
         name=nombre
