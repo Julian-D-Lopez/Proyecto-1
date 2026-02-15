@@ -7,7 +7,6 @@
 
 #La visualización debe tener un mapa 2D y un mapa 3D.
 
-from curses.ascii import alt
 import folium
 import os   
 import folium
